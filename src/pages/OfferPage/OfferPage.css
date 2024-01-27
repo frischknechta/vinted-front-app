@@ -1,0 +1,88 @@
+/* OFFER PAGE */
+
+.offerPage {
+  background-color: #f2f2f2;
+  height: calc(100vh - 60px);
+}
+
+.offerContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  padding-top: 30px;
+}
+
+.offerImage .productImage {
+  height: 600px;
+  object-fit: contain;
+}
+
+.offerInfos {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  width: 400px;
+  border-radius: 2px;
+}
+
+.offerInfos li {
+  display: flex;
+  font-size: 13px;
+  padding: 2px 0;
+  color: #757575;
+}
+
+.offerInfos li span {
+  flex: 1 1;
+}
+
+.divider {
+  height: 1px;
+  background-color: #efefef;
+}
+
+.offerContent p {
+  margin: 16px 0;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.description {
+  color: #4d4d4d;
+  font-family: "Vinted-Book", sans-serif;
+}
+
+.userInfos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Vinted-Book", sans-serif;
+}
+
+.offerAvatar {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.offerAvatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.offerInfos button {
+  width: 100%;
+  height: 36px;
+  background-color: #197580;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}

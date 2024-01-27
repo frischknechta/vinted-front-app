@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Vinted-MED";
+  src: url("../fonts/Vinted-MED.eot");
+  src: url("../fonts/Vinted-MED.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Vinted-MED.woff2") format("woff2"),
+    url("../fonts/Vinted-MED.woff") format("woff"),
+    url("../fonts/Vinted-MED.ttf") format("truetype"),
+    url("../fonts/Vinted-MED.svg#Font") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vinted-Book";
+  src: url("../fonts/Vinted-Book.eot");
+  src: url("../fonts/Vinted-Book.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Vinted-Book.woff2") format("woff2"),
+    url("../fonts/Vinted-Book.woff") format("woff"),
+    url("../fonts/Vinted-Book.ttf") format("truetype"),
+    url("../fonts/Vinted-Book.svg#Font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

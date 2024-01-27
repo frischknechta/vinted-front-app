@@ -1,0 +1,83 @@
+/* GENERAL */
+
+body {
+  font-size: 16px;
+  font-family: "Vinted-MED", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 42.5px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+  height: 60px;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  align-items: center;
+}
+
+header > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .icon {
+  position: absolute;
+  padding: 10px;
+  color: #757575;
+}
+
+#searchBar {
+  width: 550px;
+  height: 35px;
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  padding-left: 40px;
+}
+
+.headerRight {
+  display: flex;
+  gap: 20px;
+}
+
+.headerRight button {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #1a7782;
+  color: #1a7782;
+  background-color: white;
+}
+
+.headerRight button:last-of-type {
+  border: none;
+  background-color: #1a7782;
+  color: white;
+}

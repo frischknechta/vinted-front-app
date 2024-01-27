@@ -1,0 +1,131 @@
+/* HERO */
+
+.heroBlock {
+  min-height: 65vh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroBackground {
+  position: absolute;
+  z-index: -1;
+  min-height: 65vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(../src/assets/img/hero-banner.jpg);
+  background-size: cover;
+  background-position: 50%;
+}
+
+.heroBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.contentBlock {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 385px;
+  padding: 32px;
+  border-radius: 2px;
+}
+
+.contentBlock a {
+  color: #007782;
+  font-size: 14px;
+}
+
+.sellButton {
+  width: 100%;
+  height: 36px;
+  background-color: #197580;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+/* MAIN */
+
+.offersList {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* OFFERCARD */
+
+.offerCardContainer {
+  width: 20%;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfos {
+  display: flex;
+  align-items: center;
+  font-family: "Vinted-Book", sans-serif;
+  font-size: 12px;
+  color: #757575;
+}
+
+.avatar {
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.imageContainer {
+  overflow: hidden;
+  height: 360px;
+  width: 235px;
+  align-self: center;
+  padding: 15px 0;
+}
+
+.productImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.offerCardBottom {
+  font-family: "Vinted-Book", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #757575;
+}
+
+.offerCardBottom .price {
+  font-family: "Vinted-MED", sans-serif;
+  font-size: 14px;
+  color: black;
+}
