@@ -1,19 +1,23 @@
 import "./App.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-import Header from "./components/Header";
-import OfferPage from "./pages/OfferPage/OfferPage";
 import { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
 library.add(faMagnifyingGlass, faXmark);
+import Cookies from "js-cookie";
+
+import HomePage from "./pages/HomePage/HomePage";
+import Header from "./components/Header";
+import OfferPage from "./pages/OfferPage/OfferPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import Cookies from "js-cookie";
+import PublishPage from "./pages/PublishPage/PublishPage";
 
 function App() {
   const [visible, setVisible] = useState({ visible: false, page: "" });
   const [token, setToken] = useState(Cookies.get("token") || "");
+  const [filters, setFilters] = useState("");
 
   const handleModals = () => {
     if (visible.visible && visible.page === "signup") {
@@ -44,11 +48,13 @@ function App() {
         setVisible={setVisible}
         token={token}
         setToken={setToken}
+        setFilters={setFilters}
       />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage filters={filters} />} />
         <Route path="/offer/:id" element={<OfferPage />} />
+        <Route path="/publish" element={<PublishPage token={token} />} />
       </Routes>
       {handleModals()}
     </Router>

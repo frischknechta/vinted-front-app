@@ -4,16 +4,18 @@ import OfferCard from "../../components/OfferCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const HomePage = () => {
+const HomePage = ({ filters }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  const request = filters
+    ? `https://site--backend-vinted--79sf29g9cmjg.code.run/offers?${filters}`
+    : "https://site--backend-vinted--79sf29g9cmjg.code.run/offers";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://site--backend-vinted--79sf29g9cmjg.code.run/offers"
-        );
+        const response = await axios.get(request);
         console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -22,7 +24,7 @@ const HomePage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [filters]);
 
   return isLoading ? (
     <span>Loading...</span>
