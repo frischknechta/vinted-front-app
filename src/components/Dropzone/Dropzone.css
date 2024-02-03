@@ -1,0 +1,48 @@
+.dropzone {
+  border: 2px dotted #efefef;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone p {
+  text-align: center;
+  color: #1a7782;
+  font-weight: bold;
+}
+
+.dropzone .smallP {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.dropzonePreview {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.dropzonePreview li {
+  position: relative;
+}
+
+.dropzonePreview button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #1a7782;
+  color: white;
+  border: none;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.dropzonePreview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}

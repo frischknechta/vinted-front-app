@@ -58,9 +58,9 @@
   margin-right: 5px;
 }
 
-.modalSignup input[type="checkbox"]:active {
-  background-color: #197580;
-  color: #197580;
+.modalSignup p {
+  font-size: 14px;
+  text-align: justify;
 }
 
 .modalSignup .signup {

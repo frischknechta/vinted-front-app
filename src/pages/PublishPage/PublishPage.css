@@ -1,14 +1,75 @@
-form,
-fieldset {
+/* PUBLISH PAGE */
+
+.publishPage {
+  background-color: #f2f2f2;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+}
+
+.publishContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.publishPage form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  width: 100%;
+  font-family: "Vinted-Book", sans-serif;
+  font-size: 16px;
 }
 
-form img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+fieldset {
+  background-color: white;
+  border-radius: 2px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+fieldset:not(:first-of-type) {
+  gap: 20px;
+}
+
+.publishContainer label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.publishContainer input:not([type="checkbox"]) {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.exchange {
+  align-self: flex-end;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+}
+
+.addButton {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #1a7782;
+  color: white;
 }

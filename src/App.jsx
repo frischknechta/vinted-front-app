@@ -13,6 +13,7 @@ import OfferPage from "./pages/OfferPage/OfferPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PublishPage from "./pages/PublishPage/PublishPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
 
 function App() {
   const [visible, setVisible] = useState({ visible: false, page: "" });
@@ -52,9 +53,20 @@ function App() {
       />
 
       <Routes>
-        <Route path="/" element={<HomePage filters={filters} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              filters={filters}
+              token={token}
+              visible={visible}
+              setVisible={setVisible}
+            />
+          }
+        />
         <Route path="/offer/:id" element={<OfferPage />} />
         <Route path="/publish" element={<PublishPage token={token} />} />
+        <Route path="/payment" element={<PaymentPage token={token} />} />
       </Routes>
       {handleModals()}
     </Router>

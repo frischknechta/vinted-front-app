@@ -12,6 +12,15 @@
   padding-top: 30px;
 }
 
+.offerImage {
+  width: 600px;
+}
+
+/* .offerImage img {
+  width: 300px;
+  height: 300px;
+} */
+
 .offerImage .productImage {
   height: 600px;
   object-fit: contain;

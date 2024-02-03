@@ -1,0 +1,76 @@
+/* PAYMENT PAGE */
+
+.paymentPage {
+  background-color: #f2f2f2;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+}
+
+.paymentContainer {
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+  max-width: 450px;
+  font-family: "Vinted-Book", sans-serif;
+  font-size: 16px;
+}
+
+.paymentContainer p {
+  font-size: 12px;
+  color: #757575;
+}
+
+.paymentContainer section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 0;
+  color: #4d4d4d;
+}
+
+.paymentContainer section > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paymentContainer .total > div {
+  color: black;
+  font-family: "Vinted-MED", sans-serif;
+}
+.paymentContainer .total > div:first-of-type {
+  font-weight: bold;
+}
+
+.paymentContainer .total > div:last-of-type span:last-of-type {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "Vinted-Book", sans-serif;
+}
+
+.paymentContainer .total em {
+  font-weight: bold;
+}
+
+#checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#checkoutForm button {
+  font-family: "Vinted-MED", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #1a7782;
+  color: white;
+}

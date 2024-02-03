@@ -4,7 +4,7 @@ import OfferCard from "../../components/OfferCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const HomePage = ({ filters }) => {
+const HomePage = ({ filters, token, setVisible, visible }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +30,7 @@ const HomePage = ({ filters }) => {
     <span>Loading...</span>
   ) : (
     <main>
-      <Hero />
+      <Hero token={token} visible={visible} setVisible={setVisible} />
       <div className="wrapper">
         <div className="offersList">
           {data.offers.map((offer) => {
