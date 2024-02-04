@@ -41,7 +41,7 @@ const PaymentPage = ({ token }) => {
           <div>
             <span>
               Il ne vous reste plus qu'une étape pour vous offrir
-              <em> {title}</em>. Vous allez payer <em>{total} €</em> (frais de
+              <em> {title}</em>. Vous allez payer <em> {total} €</em> (frais de
               protection et frais de port inclus).
             </span>
           </div>

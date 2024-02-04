@@ -1,13 +1,23 @@
+import "./Header.css";
+
 import { Link, useNavigate } from "react-router-dom";
-import logoVinted from "../assets/img/logo.svg";
+import logoVinted from "../../assets/img/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-const Header = ({ setVisible, visible, token, setToken, setFilters }) => {
+const Header = ({
+  setVisible,
+  visible,
+  token,
+  setToken,
+  setFilters,
+  filters,
+}) => {
   const navigate = useNavigate();
 
   const [searchBar, setSearchBar] = useState("");
+  const [priceSort, setPriceSort] = useState("");
 
   const handleLogin = () => {
     const newObj = { ...visible };
@@ -18,8 +28,18 @@ const Header = ({ setVisible, visible, token, setToken, setFilters }) => {
 
   useEffect(() => {
     console.log("USE EFFECT");
-    searchBar ? setFilters(`title=${searchBar}`) : setFilters("");
-  }, [searchBar]);
+    const newObj = { ...filters };
+    if (searchBar) {
+      newObj.title = `title=${searchBar}`;
+    } else {
+      newObj.title = "";
+    }
+
+    if (priceSort) {
+      newObj.priceSort = `sort=${priceSort}`;
+    }
+    setFilters(newObj);
+  }, [searchBar, priceSort]);
 
   return (
     <header>
@@ -40,6 +60,23 @@ const Header = ({ setVisible, visible, token, setToken, setFilters }) => {
               setSearchBar(value);
             }}
           />
+        </div>
+        <div className="priceSort">
+          <span>Trier par prix: </span>
+          <button
+            onClick={() => {
+              setPriceSort("price-asc");
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-up-1-9" />
+          </button>
+          <button
+            onClick={() => {
+              setPriceSort("price-desc");
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-down-9-1" />
+          </button>
         </div>
         <div className="headerRight">
           {token ? (

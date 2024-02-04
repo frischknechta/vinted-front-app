@@ -6,6 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
@@ -24,60 +28,4 @@ h2 {
 
 button:hover {
   cursor: pointer;
-}
-
-/* HEADER */
-
-header {
-  height: 60px;
-  border-bottom: 1px solid #efefef;
-  display: flex;
-  align-items: center;
-}
-
-header > div {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .icon {
-  position: absolute;
-  padding: 10px;
-  color: #757575;
-}
-
-#searchBar {
-  width: 550px;
-  height: 35px;
-  background-color: #f5f6f7;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: inherit;
-  padding-left: 40px;
-}
-
-.headerRight {
-  display: flex;
-  gap: 20px;
-}
-
-.headerRight button {
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  outline: none;
-  border: 1px solid #1a7782;
-  color: #1a7782;
-  background-color: white;
-}
-
-.headerRight button:last-of-type {
-  border: none;
-  background-color: #1a7782;
-  color: white;
 }

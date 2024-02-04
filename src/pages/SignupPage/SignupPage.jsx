@@ -3,25 +3,26 @@ import "./SignupPage.css";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
 
 const SignupPage = ({ setVisible, visible, setToken }) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState(null);
   const [newsletter, setNewsletter] = useState(false);
-  const navigate = useNavigate();
+
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("username", userName);
+  formData.append("password", password);
+  formData.append("newsletter", newsletter);
+  formData.append("picture", avatar);
 
   const sendData = async () => {
     try {
       const response = await axios.post(
         "https://site--backend-vinted--79sf29g9cmjg.code.run/user/signup",
-        {
-          email: email,
-          username: userName,
-          password: password,
-          newsletter: newsletter,
-        }
+        formData
       );
       Cookies.set("token", response.data.token);
       setToken(response.data.token);
@@ -29,7 +30,6 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
       newObj.visible = false;
       newObj.page = "";
       setVisible(newObj);
-      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
@@ -105,6 +105,33 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
               setPassword(value);
             }}
           />
+
+          <label htmlFor="avatar" className="avatarInput">
+            Choisir son avatar
+            <input
+              type="file"
+              name="avatar"
+              id="avatar"
+              onChange={(event) => {
+                setAvatar(event.target.files[0]);
+              }}
+            />
+          </label>
+
+          {avatar && (
+            <div className="preview">
+              <img
+                src={URL.createObjectURL(avatar)}
+                alt="avatar"
+                onLoad={() => {
+                  URL.revokeObjectURL(avatar);
+                }}
+              />
+              <button onClick={() => setAvatar(null)}>
+                <FontAwesomeIcon icon="xmark" />
+              </button>
+            </div>
+          )}
 
           <label htmlFor="newsletter">
             <input

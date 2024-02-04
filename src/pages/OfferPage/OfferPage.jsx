@@ -6,29 +6,25 @@ import axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const OfferPage = ({ data }) => {
+const OfferPage = ({ token, setVisible, visible }) => {
   const { id } = useParams();
   const [offer, setOffer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // const responsive = {
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 3,
-  //     slidesToSlide: 3, // optional, default to 1.
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 2,
-  //     slidesToSlide: 2, // optional, default to 1.
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 1,
-  //     slidesToSlide: 1, // optional, default to 1.
-  //   },
-  // };
+  const handleLogin = () => {
+    const newObj = { ...visible };
+    newObj.visible = true;
+    newObj.page = "login";
+    setVisible(newObj);
+  };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 0 },
+      items: 1,
+    },
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,37 +48,36 @@ const OfferPage = ({ data }) => {
     <div className="offerPage">
       <div className="wrapper offerContainer">
         <div className="offerImage">
-          <img
-            className="productImage"
-            src={offer.product_image.url}
-            alt="Product image"
-          />
-          {/* <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            autoPlay={false}
-            autoPlaySpeed={1000}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-          >
-            {offer.product_pictures.map((picture) => {
-              console.log("PICTURE>>>>>>>", picture);
-              return (
-                <li>
+          {offer.product_pictures.length > 1 ? (
+            <Carousel
+              swipeable={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+              infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={1000}
+              keyBoardControl={true}
+              customTransition="all .5"
+              transitionDuration={500}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+            >
+              {offer.product_pictures.map((picture) => {
+                return (
                   <img key={picture.asset_id} src={picture.secure_url} alt="" />
-                </li>
-              );
-            })}
-          </Carousel> */}
+                );
+              })}
+            </Carousel>
+          ) : (
+            <img
+              className="productImage"
+              src={offer.product_image.url}
+              alt="Product image"
+            />
+          )}
         </div>
         <div className="offerInfos">
           <div>
@@ -123,12 +118,14 @@ const OfferPage = ({ data }) => {
           <div>
             <button
               onClick={() => {
-                navigate("/payment", {
-                  state: {
-                    title: offer.product_name,
-                    price: offer.product_price,
-                  },
-                });
+                token
+                  ? navigate("/payment", {
+                      state: {
+                        title: offer.product_name,
+                        price: offer.product_price,
+                      },
+                    })
+                  : handleLogin();
               }}
             >
               Acheter

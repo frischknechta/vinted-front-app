@@ -10,6 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1000;
 }
 
 .modalSignup {
@@ -80,4 +81,49 @@
   background: none;
   border: none;
   font-family: inherit;
+}
+
+.modalSignup input[type="file"] {
+  display: none;
+}
+
+.modalSignup .avatarInput {
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #1a7782;
+  color: #1a7782;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+}
+
+.modalSignup .preview {
+  position: relative;
+  align-self: center;
+}
+
+.modalSignup .preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 50px;
+}
+
+.modalSignup .preview button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  color: #1a7782;
+  border: none;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
 }

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ total, title }) => {
   const elements = useElements();
   const stripe = useStripe();
+  const navigate = useNavigate();
 
   const [completed, setCompleted] = useState(false);
 
@@ -28,6 +30,9 @@ const CheckoutForm = ({ total, title }) => {
     );
 
     console.log(response.data);
+    if (response.data.status === "succeeded") {
+      setCompleted(true);
+    }
   };
 
   return (
@@ -38,7 +43,18 @@ const CheckoutForm = ({ total, title }) => {
           <button type="submit">Payer</button>
         </form>
       ) : (
-        <span>Paiement effectué ! </span>
+        <>
+          <div className="checkoutSucceeded">
+            <p>Paiement effectué ! </p>
+            <button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Revenir à la page d'accueil
+            </button>
+          </div>
+        </>
       )}
     </>
   );

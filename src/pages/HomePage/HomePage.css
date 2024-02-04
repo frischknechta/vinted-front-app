@@ -129,3 +129,29 @@
   font-size: 14px;
   color: black;
 }
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.pages button {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #1a7782;
+  color: white;
+}
+
+.pages span {
+  font-family: "Vinted-Book", sans-serif;
+  font-size: 16px;
+  color: #757575;
+}

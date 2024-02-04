@@ -26,7 +26,6 @@ const LoginPage = ({ setVisible, visible, setToken }) => {
       newObj.visible = false;
       newObj.page = "";
       setVisible(newObj);
-      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
