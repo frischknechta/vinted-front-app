@@ -12,7 +12,10 @@ const Hero = ({ token, setVisible, visible }) => {
 
   return (
     <div className="heroBlock">
-      <div className="heroBackground"></div>
+      <div className="heroBackground">
+        <div className="heroBackgroundTear"></div>
+      </div>
+
       <div className="heroContainer wrapper">
         <div className="contentBlock">
           <h1>Prêts à faire du tri dans vos placards ?</h1>

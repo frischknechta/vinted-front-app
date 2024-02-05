@@ -30,6 +30,7 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
       newObj.visible = false;
       newObj.page = "";
       setVisible(newObj);
+      document.body.setAttribute("style", ``);
     } catch (error) {
       console.log(error.response);
     }
@@ -48,6 +49,7 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
         newObj.visible = false;
         newObj.page = "";
         setVisible(newObj);
+        document.body.setAttribute("style", ``);
       }}
     >
       <div
@@ -63,6 +65,7 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
             newObj.visible = false;
             newObj.page = "";
             setVisible(newObj);
+            document.body.setAttribute("style", ``);
           }}
         >
           <FontAwesomeIcon icon="xmark" />

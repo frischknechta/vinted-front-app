@@ -17,6 +17,7 @@ const OfferPage = ({ token, setVisible, visible }) => {
     newObj.visible = true;
     newObj.page = "login";
     setVisible(newObj);
+    document.body.setAttribute("style", `position: fixed; left: 0; right: 0;`);
   };
 
   const responsive = {

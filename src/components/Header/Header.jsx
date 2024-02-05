@@ -24,6 +24,7 @@ const Header = ({
     newObj.visible = true;
     newObj.page = "login";
     setVisible(newObj);
+    document.body.setAttribute("style", `position: fixed; left: 0; right: 0;`);
   };
 
   useEffect(() => {
@@ -97,6 +98,10 @@ const Header = ({
                   newObj.visible = true;
                   newObj.page = "signup";
                   setVisible(newObj);
+                  document.body.setAttribute(
+                    "style",
+                    `position: fixed; left: 0; right: 0;`
+                  );
                 }}
               >
                 S'inscrire
