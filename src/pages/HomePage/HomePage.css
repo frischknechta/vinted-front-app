@@ -15,7 +15,7 @@
   min-height: 65vh;
   width: 100%;
   overflow: hidden;
-  background-image: url(../src/assets/img/hero-banner.jpg);
+  background-image: url(/hero-banner.jpg);
   background-size: cover;
   background-position: 50%;
 }

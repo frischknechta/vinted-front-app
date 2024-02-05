@@ -107,7 +107,7 @@ const SignupPage = ({ setVisible, visible, setToken }) => {
           />
 
           <label htmlFor="avatar" className="avatarInput">
-            Choisir son avatar
+            Choisir un avatar
             <input
               type="file"
               name="avatar"
