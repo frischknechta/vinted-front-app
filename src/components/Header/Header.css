@@ -9,6 +9,7 @@ header {
   background-color: white;
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 header > div {
@@ -25,7 +26,7 @@ header .icon {
 }
 
 #searchBar {
-  width: 550px;
+  min-width: 350px;
   height: 35px;
   background-color: #f5f6f7;
   border: none;
@@ -51,7 +52,7 @@ header .icon {
 
 .headerRight {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .headerRight button {
@@ -70,4 +71,66 @@ header .icon {
   border: none;
   background-color: #1a7782;
   color: white;
+}
+
+.visibleS,
+.hidden,
+.visible {
+  display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1000px) {
+  .visibleS {
+    display: unset;
+  }
+  .searchBarContainer,
+  .priceSort,
+  .headerRight {
+    display: none;
+  }
+
+  .searchBarBottom {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 0 20px;
+    height: 60px;
+    width: 100%;
+    border-bottom: #efefef 1px solid;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  .searchBarBottom > input {
+    flex: 1;
+  }
+
+  .visible {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: white;
+    border-bottom: #efefef 1px solid;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .priceSort.bottom {
+    display: unset;
+  }
+
+  .headerRight.bottom {
+    display: flex;
+    flex-direction: column;
+  }
 }

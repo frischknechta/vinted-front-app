@@ -82,6 +82,7 @@ main {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* OFFERCARD */
@@ -171,4 +172,14 @@ main {
   font-family: "Vinted-Book", sans-serif;
   font-size: 16px;
   color: #757575;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  /* MAIN */
+
+  main {
+    margin-top: 120px;
+  }
 }

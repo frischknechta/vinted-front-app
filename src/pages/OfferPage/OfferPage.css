@@ -16,16 +16,20 @@
 
 .offerImage {
   width: 500px;
+  height: 500px;
 }
 
-.offerImage img {
-  height: 600px;
+.swiper {
   width: 500px;
-  object-fit: cover;
+  height: 500px;
+}
+
+.swiper-slide > img {
+  object-fit: contain;
+  height: 100%;
 }
 
 .offerImage .productImage {
-  height: 600px;
   object-fit: contain;
 }
 
@@ -97,4 +101,50 @@
   border-radius: 5px;
   font-size: 14px;
   font-family: inherit;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .offerPage {
+    margin-top: 120px;
+  }
+
+  .offerContainer {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .offerImage {
+    width: 350px;
+    height: 350px;
+  }
+
+  .swiper {
+    width: 350px;
+    height: 350px;
+  }
+
+  .offerInfos {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .offerImage {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .offerInfos {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .swiper {
+    width: 90vw;
+    height: 90vw;
+  }
 }

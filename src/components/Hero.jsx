@@ -27,7 +27,9 @@ const Hero = ({ token, setVisible, visible }) => {
           >
             Vends maintenant
           </button>
-          <a href="">Découvrir comment ça marche</a>
+          <a href="https://www.vinted.fr/how_it_works">
+            Découvrir comment ça marche
+          </a>
         </div>
       </div>
     </div>

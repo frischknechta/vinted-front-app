@@ -18,6 +18,7 @@ const Header = ({
 
   const [searchBar, setSearchBar] = useState("");
   const [priceSort, setPriceSort] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleLogin = () => {
     const newObj = { ...visible };
@@ -57,6 +58,7 @@ const Header = ({
             placeholder="Rechercher des articles"
             value={searchBar}
             onChange={(event) => {
+              navigate("/");
               const value = event.target.value;
               setSearchBar(value);
             }}
@@ -116,6 +118,93 @@ const Header = ({
           >
             Vends tes articles
           </button>
+        </div>
+        <div className="visibleS" onClick={() => setShowMenu(!showMenu)}>
+          <FontAwesomeIcon icon="fa-bars" />
+        </div>
+        <div className="visibleS searchBarBottom">
+          <FontAwesomeIcon icon="fa-magnifying-glass" className="icon" />
+          <input
+            type="search"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Rechercher des articles"
+            value={searchBar}
+            onChange={(event) => {
+              navigate("/");
+              const value = event.target.value;
+              setSearchBar(value);
+            }}
+          />
+        </div>
+        <div className={showMenu ? "visible" : "hidden"}>
+          <div className="priceSort bottom">
+            <span>Trier par prix: </span>
+            <button
+              onClick={() => {
+                setPriceSort("price-asc");
+                setShowMenu(!showMenu);
+              }}
+            >
+              <FontAwesomeIcon icon="fa-solid fa-arrow-up-1-9" />
+            </button>
+            <button
+              onClick={() => {
+                setPriceSort("price-desc");
+                setShowMenu(!showMenu);
+              }}
+            >
+              <FontAwesomeIcon icon="fa-solid fa-arrow-down-9-1" />
+            </button>
+          </div>
+          <div className="headerRight bottom">
+            {token ? (
+              <button
+                onClick={() => {
+                  setShowMenu(!showMenu);
+                  Cookies.remove("token");
+                  setToken("");
+                  navigate("/");
+                }}
+              >
+                Se déconnecter
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    setShowMenu(!showMenu);
+                    const newObj = { ...visible };
+                    newObj.visible = true;
+                    newObj.page = "signup";
+                    setVisible(newObj);
+                    document.body.setAttribute(
+                      "style",
+                      `position: fixed; left: 0; right: 0;`
+                    );
+                  }}
+                >
+                  S'inscrire
+                </button>
+                <button
+                  onClick={() => {
+                    handleLogin();
+                    setShowMenu(!showMenu);
+                  }}
+                >
+                  Se connecter
+                </button>
+              </>
+            )}
+            <button
+              onClick={() => {
+                setShowMenu(!showMenu);
+                token ? navigate("/publish") : handleLogin();
+              }}
+            >
+              Vends tes articles
+            </button>
+          </div>
         </div>
       </div>
     </header>

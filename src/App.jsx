@@ -8,8 +8,9 @@ import {
   faXmark,
   faArrowUp19,
   faArrowDown91,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMagnifyingGlass, faXmark, faArrowUp19, faArrowDown91);
+library.add(faMagnifyingGlass, faXmark, faArrowUp19, faArrowDown91, faBars);
 import Cookies from "js-cookie";
 
 import HomePage from "./pages/HomePage/HomePage";

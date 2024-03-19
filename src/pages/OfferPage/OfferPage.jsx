@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Swiper from "swiper/bundle";
+import "swiper/css/bundle";
 
 const OfferPage = ({ token, setVisible, visible }) => {
   const { id } = useParams();
@@ -26,6 +26,15 @@ const OfferPage = ({ token, setVisible, visible }) => {
       items: 1,
     },
   };
+
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,28 +59,20 @@ const OfferPage = ({ token, setVisible, visible }) => {
       <div className="wrapper offerContainer">
         <div className="offerImage">
           {offer.product_pictures.length > 1 ? (
-            <Carousel
-              swipeable={false}
-              draggable={false}
-              showDots={true}
-              responsive={responsive}
-              infinite={true}
-              autoPlay={false}
-              autoPlaySpeed={1000}
-              keyBoardControl={true}
-              customTransition="all .5"
-              transitionDuration={500}
-              containerClass="carousel-container"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px"
-            >
-              {offer.product_pictures.map((picture) => {
-                return (
-                  <img key={picture.asset_id} src={picture.secure_url} alt="" />
-                );
-              })}
-            </Carousel>
+            <div className="swiper">
+              <div className="swiper-wrapper">
+                {offer.product_pictures.map((picture) => {
+                  return (
+                    <div className="swiper-slide" key={picture.asset_id}>
+                      <img src={picture.secure_url} alt="" />
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
           ) : (
             <img
               className="productImage"
@@ -80,6 +81,7 @@ const OfferPage = ({ token, setVisible, visible }) => {
             />
           )}
         </div>
+
         <div className="offerInfos">
           <div>
             <h2>{offer.product_price.toFixed(2)} €</h2>

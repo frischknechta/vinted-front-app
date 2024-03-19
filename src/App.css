@@ -29,3 +29,10 @@ h2 {
 button:hover {
   cursor: pointer;
 }
+
+@media (max-width: 1280px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

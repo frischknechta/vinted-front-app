@@ -101,3 +101,12 @@
   background-color: #1a7782;
   color: white;
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .paymentPage {
+    margin-top: 120px;
+    padding: 0 20px;
+  }
+}
