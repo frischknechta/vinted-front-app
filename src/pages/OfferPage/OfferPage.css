@@ -19,12 +19,21 @@
   height: 500px;
 }
 
-.swiper {
+swiper-container {
   width: 500px;
   height: 500px;
 }
 
-.swiper-slide > img {
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: #197580;
+}
+
+swiper-container::part(bullet-active) {
+  background-color: #197580;
+}
+
+swiper-slide > img {
   object-fit: contain;
   height: 100%;
 }
@@ -121,7 +130,7 @@
     height: 350px;
   }
 
-  .swiper {
+  swiper-container {
     width: 350px;
     height: 350px;
   }
@@ -143,7 +152,7 @@
     width: 100%;
   }
 
-  .swiper {
+  swiper-container {
     width: 90vw;
     height: 90vw;
   }

@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Swiper from "swiper/bundle";
-import "swiper/css/bundle";
+import { register } from "swiper/element/bundle";
+register();
 
 const OfferPage = ({ token, setVisible, visible }) => {
   const { id } = useParams();
@@ -19,22 +19,6 @@ const OfferPage = ({ token, setVisible, visible }) => {
     setVisible(newObj);
     document.body.setAttribute("style", `position: fixed; left: 0; right: 0;`);
   };
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 0 },
-      items: 1,
-    },
-  };
-
-  const swiper = new Swiper(".swiper", {
-    loop: true,
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,20 +43,30 @@ const OfferPage = ({ token, setVisible, visible }) => {
       <div className="wrapper offerContainer">
         <div className="offerImage">
           {offer.product_pictures.length > 1 ? (
-            <div className="swiper">
-              <div className="swiper-wrapper">
-                {offer.product_pictures.map((picture) => {
-                  return (
-                    <div className="swiper-slide" key={picture.asset_id}>
-                      <img src={picture.secure_url} alt="" />
-                    </div>
-                  );
-                })}
-              </div>
+            // <div className="swiper">
+            //   <div className="swiper-wrapper">
+            //     {offer.product_pictures.map((picture) => {
+            //       return (
+            //         <div className="swiper-slide" key={picture.asset_id}>
+            //           <img src={picture.secure_url} alt="" />
+            //         </div>
+            //       );
+            //     })}
+            //   </div>
 
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
+            //   <div class="swiper-button-prev"></div>
+            //   <div class="swiper-button-next"></div>
+            // </div>
+
+            <swiper-container navigation="true" pagination="true" loop="true">
+              {offer.product_pictures.map((picture) => {
+                return (
+                  <swiper-slide key={picture.asset_id}>
+                    <img src={picture.secure_url} alt="" />
+                  </swiper-slide>
+                );
+              })}
+            </swiper-container>
           ) : (
             <img
               className="productImage"
@@ -110,7 +104,10 @@ const OfferPage = ({ token, setVisible, visible }) => {
             <div className="userInfos">
               <div className="offerAvatar">
                 {offer.owner.account.avatar ? (
-                  <img src={offer.owner.account.avatar.url} alt="Avatar" />
+                  <img
+                    src={offer.owner.account.avatar.secure_url}
+                    alt="Avatar"
+                  />
                 ) : (
                   ""
                 )}
