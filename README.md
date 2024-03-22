@@ -21,10 +21,10 @@ You can try it on the live [demo](https://vinted-af.netlify.app/).
 
 ```
 #Clone the repository
-git clone https://github.com/frischknechta/my-portfolio.git
+git clone https://github.com/frischknechta/vinted-front-app.git
 
 #Go in the repository
-cd my-portfolio
+cd vinted-front-app
 
 #Install dependencies
 yarn
